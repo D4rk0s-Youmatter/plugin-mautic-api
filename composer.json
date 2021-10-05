@@ -1,0 +1,22 @@
+{
+    "name": "d4rk0s/mautic-api",
+    "description": "Wordpress plugin to auth and use mautic api",
+    "require": {
+        "mautic/api-library": "^3.0"
+    }
+    ,
+    "require-dev": {
+        "roave/security-advisories": "dev-latest"
+    },
+    "autoload": {
+        "psr-4": {
+            "D4rk0s\\WpMauticApi\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "D4rk0s",
+            "email": "gregory@d4rk0s.net"
+        }
+    ]
+}
