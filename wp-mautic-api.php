@@ -21,7 +21,6 @@
  * Text Domain:       wp-mautic-api
  * Domain Path:       /languages
  */
-require_once __DIR__."/vendor/autoload.php";
 
 // If this file is called directly, abort.
 use D4rk0s\WpMauticApi\WpMauticApi;

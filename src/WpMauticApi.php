@@ -45,7 +45,7 @@ class WpMauticApi
     }
 
     if(!array_key_exists($context, self::$mauticApiContexts)) {
-      self::$mauticApiContexts[$context] = self::$mauticApi->newApi($context, MauticAuth::getAuth(), MauticAuth::MAUTIC_BASEURL."/api");
+      self::$mauticApiContexts[$context] = self::$mauticApi->newApi($context, MauticAuth::getAuth(), get_option(MauticAuth::MAUTIC_BASEURL)."/api");
     }
 
     return self::$mauticApiContexts[$context];

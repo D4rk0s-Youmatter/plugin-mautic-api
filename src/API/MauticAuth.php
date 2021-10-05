@@ -31,6 +31,18 @@ class MauticAuth extends AbstractRestApiRoutes
       update_option(self::MAUTIC_BASEURL,$_POST[self::MAUTIC_BASEURL]);
      }
 
+     self::getAuth(true);
+
+     wp_redirect(get_site_url().'/wp-admin/admin.php?page=mautic-api-page');
+     exit;
+   }
+
+   public static function getAuth(bool $internalProcess = false) : AuthInterface
+   {
+     if(!$internalProcess && !get_option(self::MAUTIC_OAUTH_OPTION)) {
+       throw new NotInitializedException(get_site_url().'/wp-admin/admin.php?page=mautic-api-page');
+     }
+
      $apiAuth = new ApiAuth();
 
      $auth = $apiAuth->newAuth(self::getSettings());
@@ -45,19 +57,7 @@ class MauticAuth extends AbstractRestApiRoutes
        update_option(self::MAUTIC_OAUTH_OPTION, serialize($OAuth2Token));
      }
 
-     wp_redirect(get_site_url().'/wp-admin/admin.php?page=mautic-api-page');
-     exit;
-   }
-
-   public static function getAuth() : AuthInterface
-   {
-     $apiAuth = new ApiAuth();
-
-     if(false !== get_option(self::MAUTIC_OAUTH_OPTION)) {
-       return $apiAuth->newAuth(self::getSettings());
-     }
-
-     throw new NotInitializedException(get_site_url().'/wp-admin/admin.php?page=mautic-api-page');
+     return $auth;
    }
 
    protected static function getSettings() : array
