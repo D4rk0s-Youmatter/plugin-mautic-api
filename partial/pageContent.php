@@ -28,6 +28,6 @@
         Mautic private key
         <input type="text" name="<?php echo MauticAuth::MAUTIC_API_PRIVATE_KEY; ?>" value="<?php echo get_option(MauticAuth::MAUTIC_API_PRIVATE_KEY); ?>"/>
       </label>
-      <input type="submit" value="test">
+      <input type="submit" value="Sauvegarder">
     </form>
 </div>
