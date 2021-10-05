@@ -1,5 +1,6 @@
 {
     "name": "d4rk0s/wp-mautic-api",
+    "type": "wordpress-plugin",
     "description": "Wordpress plugin to auth and use mautic api",
     "require": {
         "mautic/api-library": "^3.0"
